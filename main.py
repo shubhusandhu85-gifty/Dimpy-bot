@@ -23,3 +23,15 @@ app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, chat))
 app.run_polling()
+from flask import Flask
+import threading
+
+app = Flask('')
+@app.route('/')
+def home():
+    return "Dimpy Bot is Alive!"
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8080)
+
+threading.Thread(target=run_flask).start()
