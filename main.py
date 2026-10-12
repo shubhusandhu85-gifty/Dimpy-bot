@@ -43,7 +43,7 @@ async def ai_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-1.5-flash",
             contents=f"You are Dimpy, friendly assistant. Reply in same language as user (Hindi/Eng). Keep under 80 words. User: {user_text}"
         )
         await update.message.reply_text(response.text)
